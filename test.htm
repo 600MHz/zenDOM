@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script type="text/javascript" src="zenDOM.js"></script>
+	<script type="text/javascript">
+var generate = function(str) {
+	var htmlBlock = document.getElementById('html');
+	var outputBlock = document.getElementById('output');
+	var errorBlock = document.getElementById('error');
+	htmlBlock.innerHTML = '';
+	outputBlock.innerHTML = '';
+	errorBlock.innerHTML = '';
+	try {
+		var e = zenDOM(str);
+		var html = e.getHTML();
+		htmlBlock.innerText = str;
+		e.appendTo(outputBlock);
+		console.log(htmlBlock.innerHTML);
+	} catch(error) {
+		errorBlock.innerText = error;
+	}
+}
+	</script>
+</head>
+<body>
+	<div>
+		<textarea id="zenString" rows="15" cols="80">div&gt;dl&gt;dt+h1{zenDOM Demo}^^dd{help me to finish this demo}</textarea>
+		<input type="button" value="generate now" onclick="generate(document.getElementById('zenString').value);" />
+	</div>
+	<div id="error"></div>
+	<div id="html"></div>
+	<div id="output"></div>
+</body>
+</html>
