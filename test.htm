@@ -13,7 +13,7 @@ var generate = function(str) {
 	outputBlock.innerHTML = '';
 	errorBlock.innerHTML = '';
 	try {
-		var e = zenDOM(str);
+		var e = zen(str);
 		var html = e.getHTML();
 		htmlBlock.innerText = str;
 		e.appendTo(outputBlock);
